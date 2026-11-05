@@ -11,7 +11,7 @@ fn divide(a: usize, b: usize) -> PyResult<String> {
 }
 /// A Python module implemented in Rust.
 #[pymodule]
-fn librust_exceptions(py: Python<'_>, m: &PyModule) -> PyResult<()> {
+fn librust_exceptions(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(divide, m)?)?;
     Ok(())
 }
